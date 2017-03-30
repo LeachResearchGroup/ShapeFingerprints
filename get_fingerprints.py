@@ -40,9 +40,7 @@ def get_fingerprint(mol, Shape_database, bitOn):
     fingerprint = ''
 
     for fitmol in Shape_database.GetOEMols():
-
-        #print(fitmol.GetTitle())
-
+        
         resCount = 0
 
         V_fit = OECalcVolume(fitmol)
