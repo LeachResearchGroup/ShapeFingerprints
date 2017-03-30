@@ -16,9 +16,6 @@ def comp(refmol, fitmol):
     best = OEBestOverlay()
     best.SetRefMol(refmol)
 
-    #best.SetInitialOrientation(OEBOOrientation_Subrocs)
-    best.SetInitialOrientation(OEBOOrientation_InertialAtHeavyAtoms)
-
     scoreiter = OEBestOverlayScoreIter()
     OESortOverlayScores(scoreiter, best.Overlay(fitmol), OEHighestTanimoto())
 
@@ -37,11 +34,6 @@ def get_fingerprint(mol, Shape_database, bitOn):
 
     best = OEBestOverlay()
     best.SetRefMol(mol)
-
-    # sets the Initial orientation of molecules - subrocs
-
-    best.SetInitialOrientation(OEBOOrientation_InertialAtHeavyAtoms)
-    #best.SetInitialOrientation(OEBOOrientation_Subrocs)
 
     V_ref = OECalcVolume(mol)
 
