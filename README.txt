@@ -2,7 +2,7 @@ Usage:
 
 get_fingerprints.py <data_file.sdf> <Shape_Database.sdf> <out_file.sdf> <BitOnValue>
 
-if not BitOnValue is specified the default value is used: 0.60
+if BitOnValue is not specified the default value is used: 0.60
 
 
 Recommendations: 
