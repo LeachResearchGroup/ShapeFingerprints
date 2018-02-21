@@ -75,7 +75,7 @@ def main(argv=[__name__]):
 
     if len(argv) > 5 or len(argv) < 4:
         OEThrow.Usage("%s <data_file.sdf> <shape_file.sdf> <output_file.sdf> <BitOnValue> \n"
-                      "default BitOn value: 0.60" % argv[0])
+                      "default BitOnValue: 0.60" % argv[0])
 
     data_file = oemolistream(argv[1])
     shape_file = OEMolDatabase(argv[2])
