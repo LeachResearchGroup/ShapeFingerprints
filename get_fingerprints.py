@@ -10,7 +10,6 @@ def comp(refmol, fitmol):
 
     """
     additional function in case the fitting molecule has bigger volume
-    - enable to compare two molecules instead of whole set
     """
 
     best = OEBestOverlay()
@@ -74,14 +73,19 @@ def get_fingerprint(mol, Shape_database, bitOn):
 
 def main(argv=[__name__]):
 
-    if len(argv) != 5:
-        OEThrow.Usage("%s <data_file.sdf> <Shape_Database.sdf> <out_file.sdf> <BitOnValue> " % argv[0])
+    if len(argv) > 5 or len(argv) < 4:
+        OEThrow.Usage("%s <data_file.sdf> <shape_file.sdf> <output_file.sdf> <BitOnValue> \n"
+                      "default BitOn value: 0.60" % argv[0])
 
     data_file = oemolistream(argv[1])
     shape_file = OEMolDatabase(argv[2])
     out_file = oemolostream(argv[3])
-    bitOn = float(argv[4])
-
+    if len(argv) > 4:
+        bitOn = float(argv[4])
+    else:
+        bitOn = 0.60
+        
+        
     start = time.time()
     mol_count = 0
 
